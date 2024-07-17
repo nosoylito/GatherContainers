@@ -1,5 +1,6 @@
 ﻿using System;
 using Oxide.Core.Configuration;
+using UnityEngine;
 
 namespace Oxide.Plugins
 {
@@ -85,7 +86,7 @@ namespace Oxide.Plugins
             int minAmount = (int)Math.Round(maxAmount / 2.0);
             if (maxAmount < 1) { maxAmount = 1; minAmount = 1; }
             if (minAmount < 1) { minAmount = 1; }
-            info.InitiatorPlayer.inventory.GiveItem(ItemManager.CreateByItemID(69511070, Core.Random.Range(minAmount, maxAmount)));
+            info.InitiatorPlayer.GiveItem(ItemManager.CreateByName("metal.fragments", Core.Random.Range(minAmount, maxAmount)));
         }
 
         private void GiveMaterialsForCrate(BasePlayer player, LootContainer container)
@@ -93,31 +94,31 @@ namespace Oxide.Plugins
             switch (container.ShortPrefabName)
             {
                 case "crate_basic":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 10 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 15 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_tools":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 15 * config.ContainerGatheringMultiplier));
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(317398316, 1 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("metal.fragments", 25 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("metal.refined", 1 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_mine":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 15 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 50 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_normal_2":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 30 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 50 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_normal_2_food":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 20 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 50 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_normal_2_medical":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 20 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 50 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_normal":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(-151838493, 50 * config.ContainerGatheringMultiplier));
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 5 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("wood", 50 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("metal.fragments", 5 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_elite":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 50 * config.ContainerGatheringMultiplier));
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(317398316, 5 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("metal.fragments", 100 * config.ContainerGatheringMultiplier));
+                    player.GiveItem(ItemManager.CreateByName("metal.refined", 5 * config.ContainerGatheringMultiplier));
                     break;
             }
         }
