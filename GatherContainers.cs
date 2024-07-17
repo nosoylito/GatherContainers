@@ -116,8 +116,8 @@ namespace Oxide.Plugins
                     player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 5 * config.ContainerGatheringMultiplier));
                     break;
                 case "crate_elite":
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 100 * config.ContainerGatheringMultiplier));
-                    player.inventory.GiveItem(ItemManager.CreateByItemID(317398316, 15 * config.ContainerGatheringMultiplier));
+                    player.inventory.GiveItem(ItemManager.CreateByItemID(69511070, 50 * config.ContainerGatheringMultiplier));
+                    player.inventory.GiveItem(ItemManager.CreateByItemID(317398316, 5 * config.ContainerGatheringMultiplier));
                     break;
             }
         }
