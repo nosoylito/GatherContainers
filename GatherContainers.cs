@@ -122,11 +122,6 @@ namespace Oxide.Plugins
             }
         }
 
-        private string GetCrateContainerName(BaseCombatEntity entity)
-        {
-            return entity.GetType().Name;
-        }
-
         #endregion
 
         #region "Config logic"
