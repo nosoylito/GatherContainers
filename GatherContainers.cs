@@ -24,10 +24,13 @@ namespace Oxide.Plugins
 
         void OnLootEntityEnd(BasePlayer player, BaseCombatEntity entity)
         {
-            LootContainer container = entity as LootContainer;
-            if (container.inventory.itemList.Count == 0)
+            if (player != null)
             {
-                GiveMaterialsForCrate(player, container);
+                LootContainer container = entity as LootContainer;
+                if (container.inventory.itemList.Count == 0)
+                {
+                    GiveMaterialsForCrate(player, container);
+                }
             }
         }
 
